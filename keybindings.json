@@ -81,6 +81,24 @@
     "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
   },
 
+  /*** QUICK OPEN ***/
+
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus || listFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+
   /*** BONUS BINDINGS ***/
 
   // Decrease view size
