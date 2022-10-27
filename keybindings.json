@@ -1,0 +1,101 @@
+// Place your key bindings in this file to override the defaults
+[
+  /*** MAGIT ***/
+
+  // Magit status
+  {
+    "key": "ctrl+g m",
+    "command": "magit.status"
+  },
+  // Remove the default magit binding on mac
+  {
+    "key": "alt+x g",
+    "command": "-magit.status"
+  },
+  // Remove the default magit binding for k on mac (used for discard)
+  {
+    "key": "k",
+    "command": "-magit.discard-at-point",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+  // Use x for discard instead
+  {
+    "key": "x",
+    "command": "magit.discard-at-point",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+
+  /*** EXPLORER ***/
+
+  // Use ctrl+b for toggling sidebar on both Mac & Windows
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  // Remove other ctrl+b bindings
+  {
+    "key": "ctrl+b",
+    "command": "-cursorLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "-extension.vim_ctrl+b",
+    "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+  },
+
+  /*** PANEL ***/
+
+  // Use ctrl+j for toggling panel on both Mac & Windows
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel"
+  },
+  // Remove other ctrl+j bindings
+  {
+    "key": "ctrl+j",
+    "command": "-editor.action.joinLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-extension.vim_ctrl+j",
+    "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl"
+  },
+
+  /*** VIM ***/
+
+  // Trigger vim ctrl+w whenever possible
+  {
+    "key": "ctrl+w",
+    "command": "extension.vim_ctrl+w"
+  },
+  // Remove the default for ctrl+w
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.switchWindow"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-extension.vim_ctrl+w",
+    "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+  },
+
+  /*** BONUS BINDINGS ***/
+
+  // Decrease view size
+  {
+    "key": "ctrl+;",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  // Increase view size
+  {
+    "key": "ctrl+'",
+    "command": "workbench.action.increaseViewSize"
+  },
+  // Toggle maximize panel
+  {
+    "key": "ctrl+.",
+    "command": "workbench.action.toggleMaximizedPanel"
+  }
+]
