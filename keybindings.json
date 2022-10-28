@@ -25,14 +25,13 @@
     "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
   },
 
-  /*** EXPLORER ***/
-
-  // Use ctrl+b for toggling sidebar on both Mac & Windows
+  /*** 
+  Use ctrl+b for toggling sidebar on both Mac & Windows
+  ***/
   {
     "key": "ctrl+b",
     "command": "workbench.action.toggleSidebarVisibility"
   },
-  // Remove other ctrl+b bindings
   {
     "key": "ctrl+b",
     "command": "-cursorLeft",
@@ -44,14 +43,13 @@
     "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
   },
 
-  /*** PANEL ***/
-
-  // Use ctrl+j for toggling panel on both Mac & Windows
+  /*** 
+  Use ctrl+j for toggling panel on both Mac & Windows
+  ***/
   {
     "key": "ctrl+j",
     "command": "workbench.action.togglePanel"
   },
-  // Remove other ctrl+j bindings
   {
     "key": "ctrl+j",
     "command": "-editor.action.joinLines",
@@ -63,14 +61,19 @@
     "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl"
   },
 
-  /*** VIM ***/
-
-  // Trigger vim ctrl+w whenever possible
+  /*** 
+  Use ctrl+w h/j/k/l to move focus between windows/panes
+  ***/
   {
     "key": "ctrl+w",
-    "command": "extension.vim_ctrl+w"
+    "command": "extension.vim_ctrl+w",
+    "when": "!filesExplorerFocus"
   },
-  // Remove the default for ctrl+w
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "filesExplorerFocus"
+  },
   {
     "key": "ctrl+w",
     "command": "-workbench.action.switchWindow"
@@ -80,12 +83,41 @@
     "command": "-extension.vim_ctrl+w",
     "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
   },
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
 
-  /*** QUICK OPEN ***/
+  /*** 
+  Use ctrl+t j/k to move focus between terminals
+  ***/
+  {
+    "key": "ctrl+t k",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+t j",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
 
+  /*** 
+  Use ctrl+t q to kill focused terminal
+  ***/
+  {
+    "key": "ctrl+t q",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+
+  /*** 
+  Use ctrl+p for quick open on both mac and windows and navigate between options using ctrl+p & ctrl+n
+  ***/
   {
     "key": "ctrl+p",
-    "command": "workbench.action.quickOpen",
+    "command": "workbench.action.quickOpen"
   },
   {
     "key": "ctrl+p",
@@ -107,19 +139,25 @@
     "command": "-workbench.action.files.newUntitledFile"
   },
 
-  /*** BONUS BINDINGS ***/
-
-  // Decrease view size
+  /***  
+  Use ctrl+; to decrease view size
+  ***/
   {
     "key": "ctrl+;",
     "command": "workbench.action.decreaseViewSize"
   },
-  // Increase view size
+
+  /***  
+  Use ctrl+' to increase view size
+  ***/
   {
     "key": "ctrl+'",
     "command": "workbench.action.increaseViewSize"
   },
-  // Toggle maximize panel
+
+  /***  
+  Use ctrl+. to toggle maximize panel
+  ***/
   {
     "key": "ctrl+.",
     "command": "workbench.action.toggleMaximizedPanel"
