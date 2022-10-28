@@ -72,7 +72,7 @@
   {
     "key": "ctrl+w l",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "filesExplorerFocus"
+    "when": "sideBarFocus"
   },
   {
     "key": "ctrl+w",
@@ -86,7 +86,12 @@
   {
     "key": "ctrl+w k",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "panelFocus"
+  },
+  {
+    "key": "ctrl+w q",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!editorTextFocus"
   },
 
   /*** 
@@ -117,7 +122,8 @@
   ***/
   {
     "key": "ctrl+p",
-    "command": "workbench.action.quickOpen"
+    "command": "workbench.action.quickOpen",
+    "when": "!suggestWidgetVisible"
   },
   {
     "key": "ctrl+p",
