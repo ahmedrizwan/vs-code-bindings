@@ -167,5 +167,22 @@
   {
     "key": "ctrl+.",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+
+  /***  
+  Use ctrl+t to search symbols
+  ***/
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.showAllSymbols"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "-editor.action.transposeLetters"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "-extension.vim_ctrl+t",
+    "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
   }
 ]
